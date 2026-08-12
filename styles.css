@@ -88,14 +88,14 @@ img {
 }
 
 /* ==========================================================================
-   TOP BAR & NAVIGATION BAR (GREEN BRANDING)
+   TOP BAR & NAVIGATION BAR (CORREGIDO Y PROLIJO EN MÓVIL Y DESKTOP)
    ========================================================================== */
 
 .top-bar {
   background: var(--primary-green-deep);
   color: #e2e8f0;
   font-size: 0.85rem;
-  padding: 0.6rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -103,28 +103,35 @@ img {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .top-contacts {
   display: flex;
-  gap: 1.8rem;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 .top-contacts span {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   font-weight: 400;
+  white-space: nowrap;
 }
 
 .top-actions {
   display: flex;
   gap: 1.2rem;
+  align-items: center;
 }
 
 .top-link {
   color: #d1fae5;
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .top-link:hover {
@@ -279,7 +286,7 @@ img {
 }
 
 /* ==========================================================================
-   INTERACTIVE TRAVEL & DESTINATIONS SLIDER
+   INTERACTIVE TRAVEL SLIDER (IMAGEN 100% VISIBLE + TEXTO ELEGANTE Y COMPACTO)
    ========================================================================== */
 
 .section-travel-slider {
@@ -291,9 +298,9 @@ img {
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   background: var(--text-dark);
-  min-height: 480px;
+  height: 520px;
 }
 
 .slide-item {
@@ -302,9 +309,7 @@ img {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-  transform: scale(1.03);
-  display: flex;
-  align-items: center;
+  transform: scale(1.02);
 }
 
 .slide-item.active {
@@ -319,69 +324,72 @@ img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.85);
+  filter: brightness(0.95);
   transition: transform 8s ease;
 }
 
 .slide-item.active .slide-bg-img {
-  transform: scale(1.08);
+  transform: scale(1.06);
 }
 
+/* Gradiente Inferior Elegante (La imagen queda despejada en un 80%) */
 .slide-grid {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.1fr 0.9fr;
-  gap: 2rem;
-  padding: 3rem 4rem;
-  align-items: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  padding: 3rem 3.5rem 2rem;
+  background: linear-gradient(to top, rgba(15, 23, 42, 0.92) 0%, rgba(15, 23, 42, 0.55) 60%, transparent 100%);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  color: #ffffff;
 }
 
-.slide-content-card {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-radius: var(--radius-lg);
-  padding: 3rem;
-  box-shadow: var(--shadow-lg);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+.slide-info-col {
+  max-width: 650px;
 }
 
 .slide-tag {
   display: inline-flex;
   align-items: center;
   gap: 0.4rem;
-  padding: 0.35rem 0.9rem;
-  background: var(--bg-mint-light);
-  color: var(--primary-green-dark);
+  padding: 0.3rem 0.85rem;
+  background: rgba(34, 160, 82, 0.9);
+  color: #ffffff;
   font-weight: 700;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   border-radius: var(--radius-full);
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 .slide-title {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 800;
-  color: var(--primary-green-dark);
-  margin-bottom: 0.8rem;
+  color: #ffffff;
+  margin-bottom: 0.4rem;
   line-height: 1.1;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
 .slide-subtitle {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-dark);
-  margin-bottom: 0.4rem;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: #e2e8f0;
+  margin-bottom: 0.3rem;
 }
 
 .slide-date {
-  font-size: 0.92rem;
-  color: var(--text-muted);
-  margin-bottom: 2rem;
+  font-size: 0.88rem;
+  color: #a7f3d0;
+  font-weight: 600;
+}
+
+.slide-action-col {
+  margin-bottom: 0.2rem;
 }
 
 .slider-arrow {
@@ -389,23 +397,24 @@ img {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
-  width: 52px;
-  height: 52px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background: var(--primary-green);
-  color: white;
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--primary-green-dark);
   border: none;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
   transition: var(--transition-fast);
 }
 
 .slider-arrow:hover {
-  background: var(--primary-green-dark);
+  background: var(--primary-green);
+  color: #ffffff;
   transform: translateY(-50%) scale(1.1);
 }
 
@@ -414,7 +423,7 @@ img {
 
 .slider-dots {
   position: absolute;
-  bottom: 1.5rem;
+  bottom: 1.2rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
@@ -423,17 +432,17 @@ img {
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.4);
   border: none;
   cursor: pointer;
   transition: var(--transition-fast);
 }
 
 .dot.active {
-  width: 32px;
+  width: 28px;
   border-radius: 6px;
   background: var(--primary-green);
 }
@@ -523,7 +532,7 @@ img {
 }
 
 /* ==========================================================================
-   SERVICIOS Y BENEFICIOS CARD GRID (EXACT LAYOUT FROM CAPTURE)
+   SERVICIOS Y BENEFICIOS CARD GRID
    ========================================================================== */
 
 .section-servicios-oficial {
@@ -675,7 +684,7 @@ img {
 }
 
 /* ==========================================================================
-   SEDES SANTA FE PROVINCE DIRECTORY (EXACT 9 TOWNS)
+   SEDES SANTA FE PROVINCE DIRECTORY
    ========================================================================== */
 
 .section-sedes-santafe {
@@ -1202,6 +1211,11 @@ img {
 
 /* Responsive Media Queries */
 @media (max-width: 992px) {
+  .top-contacts {
+    gap: 0.8rem;
+    font-size: 0.78rem;
+  }
+
   .navbar .container {
     height: 84px;
   }
@@ -1220,15 +1234,10 @@ img {
   }
   
   .hero-banner-grid,
-  .slide-grid,
   .tienda-box,
   .credential-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-
-  .slide-content-card {
-    padding: 2rem;
   }
   
   .footer-grid {
@@ -1246,13 +1255,58 @@ img {
 }
 
 @media (max-width: 600px) {
+  .top-bar {
+    padding: 0.4rem 0;
+  }
+
+  .top-contacts {
+    justify-content: center;
+    width: 100%;
+    font-size: 0.75rem;
+    gap: 0.6rem;
+  }
+
+  .top-actions {
+    display: none; /* Hide secondary links on narrow mobile topbar for maximum cleanliness */
+  }
+
   .navbar .container {
     height: 76px;
   }
   
   .brand-logo-img {
-    height: 52px;
+    height: 54px;
   }
+  
+  /* Travel Slider Mobile Optimization */
+  .slider-container {
+    height: 440px;
+  }
+
+  .slide-grid {
+    padding: 1.5rem 1.2rem 1.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.65) 75%, transparent 100%);
+  }
+
+  .slide-title {
+    font-size: 1.7rem;
+  }
+
+  .slide-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .slider-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  .slider-arrow.prev { left: 0.5rem; }
+  .slider-arrow.next { right: 0.5rem; }
   
   .sedes-santafe-grid {
     grid-template-columns: 1fr;
@@ -1273,28 +1327,7 @@ img {
   .hero-card-left p {
     font-size: 1rem;
   }
-  
-  .slide-grid {
-    padding: 1.5rem 1rem;
-  }
 
-  .slide-title {
-    font-size: 1.85rem;
-  }
-
-  .slide-content-card {
-    padding: 1.5rem;
-  }
-
-  .slider-arrow {
-    width: 42px;
-    height: 42px;
-    font-size: 1.1rem;
-  }
-
-  .slider-arrow.prev { left: 0.5rem; }
-  .slider-arrow.next { right: 0.5rem; }
-  
   .tienda-box {
     padding: 2rem 1.5rem;
   }
@@ -1330,4 +1363,3 @@ img {
     font-size: 1.3rem;
   }
 }
-
